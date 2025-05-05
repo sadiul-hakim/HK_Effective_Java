@@ -183,7 +183,7 @@ grows).
 
 ***A singleton is simple a class that is instantiated exactly once. We have 2 ways of making singleton.***
 
-1. public field
+1. public field ⭕
 
 ```java
 public class Elvis {
@@ -194,7 +194,7 @@ public class Elvis {
 }
 ```
 
-2. static factory
+2. static factory ⭕
 
 ```java
 public class Elvis {
@@ -211,7 +211,7 @@ public class Elvis {
 
 In both approaches only one instance is created.
 
-`A third way to implement a singleton is to declare a single element enum`
+3. `A third way to implement a singleton is to declare a single element enum` ✔️
 > Preferred
 
 ```java
