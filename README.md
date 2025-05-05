@@ -179,6 +179,54 @@ public static void main(String[] args) {
 So, before making a builder make sure it is worthwhile. Use it when parameters goes out of hand (10,20 of them and
 grows).
 
+## Item 3
+
+***A singleton is simple a class that is instantiated exactly once. We have 2 ways of making singleton.***
+
+1. public field
+
+```java
+public class Elvis {
+    public static final Elvis INSTANCE = new Elvis();
+
+    private Elvis() {
+    }
+}
+```
+
+2. static factory
+
+```java
+public class Elvis {
+    private static final Elvis INSTANCE = new Elvis();
+
+    private Elvis() {
+    }
+
+    public static Elvis getInstance() {
+        return INSTANCE;
+    }
+}
+```
+
+In both approaches only one instance is created.
+
+`A third way to implement a singleton is to declare a single element enum`
+> Preferred
+
+```java
+public enum Elvis {
+    INSTANCE;
+
+    public void leaveTheBuilding() {
+        System.out.println("Whoa baby, I'm outta here!");
+    }
+}
+```
+
+The provides serialization mechanism for free. Only problem occurs when your singleton must extend a super class other
+than an Enum.
+
 # Methods Common to All Object
 
 # Classes and Interfaces
