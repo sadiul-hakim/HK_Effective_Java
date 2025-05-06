@@ -212,6 +212,7 @@ public class Elvis {
 In both approaches only one instance is created.
 
 3. `A third way to implement a singleton is to declare a single element enum` ✔️
+
 > Preferred
 
 ```java
@@ -226,6 +227,37 @@ public enum Elvis {
 
 The provides serialization mechanism for free. Only problem occurs when your singleton must extend a super class other
 than an Enum.
+
+## Item 4
+
+Sometimes we write some classes that are grouping of static methods or fields. Like : Math, Arrays. These
+classes are not meant to be instantiated. To make these classes completely non-instantiable we have these options:
+
+1. A private constructor
+
+```java
+// Not instantiable and extendable
+public class Apis {
+    private Apis() {
+        throw new AssertionError(); // To make sure the constructor is not called inside the class.
+    }
+}
+```
+
+## Item 5: Prefer Dependency Injection to hardwiring resources
+
+`Do not use singleton or static utility class to implement a class that depends on one or more underlying resources and 
+do not have the class create these resources directly. Make use of dependency injection. Pass the resources or factories
+to create them into the contructor.`
+
+## Item 6: Avoid creating unnecessary objects
+
+***It is often appropriate to a single object instead of creating a new functionally equivalent object each time it is
+needed. Reuse can be both faster and more stylish. An object can always be reused if it is immutable.***
+
+```java
+String a = new String("Never do this!");
+```
 
 # Methods Common to All Object
 
